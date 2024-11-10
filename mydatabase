@@ -1,0 +1,36 @@
+
+CREATE TABLE IF NOT EXISTS patients (
+    patient_id INT AUTO_INCREMENT PRIMARY KEY,  -- Auto-incrementing patient ID
+    first_name VARCHAR(50) NOT NULL,            -- Patient's first name
+    last_name VARCHAR(50) NOT NULL,             -- Patient's last name
+    date_of_birth DATE NOT NULL                 -- Patient's date of birth (YYYY-MM-DD)
+);
+
+CREATE TABLE IF NOT EXISTS providers (
+    provider_id INT AUTO_INCREMENT PRIMARY KEY,  -- Auto-incrementing provider ID
+    first_name VARCHAR(50) NOT NULL,              -- Provider's first name
+    last_name VARCHAR(50) NOT NULL,               -- Provider's last name
+    provider_specialty VARCHAR(100) NOT NULL      -- Provider's specialty
+);
+
+-- Inserting sample patients
+INSERT INTO patients (first_name, last_name, date_of_birth)
+VALUES
+    ('kimani', 'daudi', '1956-01-01'),
+    ('Jahom', 'Sammy', '1990-05-25'),
+    ('Michael', 'odongo', '1985-11-20'),
+    ('Emily', 'Davis', '1978-03-25'),
+    ('William', 'kamket', '2002-07-10');
+
+-- Inserting sample providers
+INSERT INTO providers (first_name, last_name, provider_specialty)
+VALUES
+    ('Dr. Alice', 'Wahome', 'Cardiology'),
+    ('Dr. Bob', 'Malley', 'Neurology'),
+    ('Dr. Carol', 'lunet', 'Orthopedics'),
+    ('Dr. Morinyo', 'Martinez', 'Pediatrics'),
+    ('Dr. Emma', 'Willi', 'Dermatology');
+SELECT patient_id, first_name, last_name, date_of_birth
+FROM patients;
+SELECT first_name, last_name, provider_specialty
+FROM providers;
